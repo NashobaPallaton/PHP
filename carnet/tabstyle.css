@@ -1,0 +1,26 @@
+body {background-color: #28282b}
+
+table,th, td { border: 1px solid rgb(227, 227, 227);}
+
+table{border-collapse:collapse;}
+
+table.centre{ margin:auto;}
+
+table.centre td{text-align:center;}
+
+table#jolie tr:first-child{
+	background:rgb(163, 163, 163)
+}
+
+table#jolie tr:nth-child(2n){
+	background:#EFD3C9;
+}
+
+table#jolie tr:nth-child(2n+3){
+	background:#BCBCD0;
+}
+
+h1{
+    text-align: center;
+    color: #BCBCD0;
+}

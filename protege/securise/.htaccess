@@ -1,0 +1,4 @@
+   AuthName "Identifiez vous"
+   AuthType Basic
+   AuthUserFile "C:\laragon\www\protege\securise\.htpasswd"
+   Require valid-user
