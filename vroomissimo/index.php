@@ -35,21 +35,19 @@ if(isset($_GET['s']) or isset($_GET['consomation']) or isset($_GET['modele'])) {
         rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
-    <h1 class="titre">Vroomissimo</h1>
-    <div class="formulaire">
+    <h1>Vroomissimo</h1>
     <form method="GET" >
         <label for="s">Recherchez par Marque:</label><br/>
         <input type="search" name="s" placeholder="Rechercher une marque" autocomplete="off">
         <input type="submit" name="Rechercher">
         <br/>
-        <label for="consomation">Filtrer par consomation:</label><br/>
+        <label for="consomation">Chercher consomation:</label><br/>
         <input type="search" id="consomation" name="consomation">
         <br/>
-        <label for="modele">Filtrer par modele:</label><br/>
+        <label for="modele">Chercher modele:</label><br/>
         <input type="search" id="modele" name="modele">
         <br/>
         <br/>
-        <a href="http://localhost/php/moteur-pdo-better/index.php">Reinitialiser la Recherche</a>
         
     </form>
     </div>
