@@ -5,7 +5,7 @@ FROM Marque
 INNER JOIN Model
 ON Id_Marque = Id_Model';
 $allcars = $bdd->query($query);
-if(isset($_GET['s']) or isset($_GET['consomation']) or isset($_GET['modele'])) {
+if(isset($_GET['s']) or isset($_GET['modele'])) {
     $recherche = htmlspecialchars($_GET['s']);
     $modele = htmlspecialchars($_GET['modele']);
     $conditions = array();
@@ -54,7 +54,7 @@ if(isset($_GET['s']) or isset($_GET['consomation']) or isset($_GET['modele'])) {
         <?php 
 
             if($allcars->rowCount() > 0)  {
-                  while($vehicule = $allcars->fetch()) {
+                  while($allcars = $allcars->fetch()) {
                     ?>
                     
                     <?php
