@@ -1,18 +1,17 @@
 <?php 
 $bdd = new PDO('mysql:host=localhost;dbname=vroomissimo', 'root', '');
-$query = 'SELECT * from vehicule';
+$query = 'SELECT *
+FROM Marque
+INNER JOIN Model
+ON Id_Marque = Id_Model';
 $allcars = $bdd->query($query);
 if(isset($_GET['s']) or isset($_GET['consomation']) or isset($_GET['modele'])) {
     $recherche = htmlspecialchars($_GET['s']);
-    $consomation = htmlspecialchars($_GET['consomation']);
     $modele = htmlspecialchars($_GET['modele']);
     $conditions = array();
 
     if(!empty($recherche)) {
       $conditions[] = 'marque like "%'.$recherche.'%"';
-    }
-    if(!empty($consomation)) {
-      $conditions[] = 'consomation like "%'.$consomation.'%"';
     }
     if(!empty($modele)) {
         $conditions[] = 'modele like "%'.$modele.'%"';
@@ -41,9 +40,6 @@ if(isset($_GET['s']) or isset($_GET['consomation']) or isset($_GET['modele'])) {
         <input type="search" name="s" placeholder="Rechercher une marque" autocomplete="off">
         <input type="submit" name="Rechercher">
         <br/>
-        <label for="consomation">Chercher consomation:</label><br/>
-        <input type="search" id="consomation" name="consomation">
-        <br/>
         <label for="modele">Chercher modele:</label><br/>
         <input type="search" id="modele" name="modele">
         <br/>
@@ -54,7 +50,7 @@ if(isset($_GET['s']) or isset($_GET['consomation']) or isset($_GET['modele'])) {
     <br/><br/><br/>
     <section class="afficher_vehicule">
     <table class="table table-dark table-striped">
-                    <tr> <td> Marque </td> <td> Modèle </td> <td> prix </td><td> consomation </td></tr>
+                    <tr> <td> Marque </td> <td> Modèle </td></tr>
         <?php 
 
             if($allcars->rowCount() > 0)  {
@@ -63,9 +59,7 @@ if(isset($_GET['s']) or isset($_GET['consomation']) or isset($_GET['modele'])) {
                     
                     <?php
                     echo "<tr><td>".$vehicule['nom_marque']."</td>
-                    <td>".$vehicule['nom_model']."</td>
-                    <td>".$vehicule['prix']."</td>
-                    <td>".$vehicule['carburant']."</td></tr>\n";
+                    <td>".$vehicule['nom_model']."</td></tr>\n";
                     ?>
                     <?php
                   }  
