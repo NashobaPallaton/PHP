@@ -15,7 +15,7 @@
 <body>
 
 <?php
-    echo $_SESSION['mon_texte'];
+    echo $_SESSION['s'];
 ?>
 
 <br>

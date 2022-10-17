@@ -1,9 +1,10 @@
 <?php
     session_start();
 
-    $mon_texte = htmlspecialchars($_GET['s']);
-
-    $_SESSION['mon_texte'] = $mon_texte;
+if(isset($_POST['s']) AND !empty($_POST['s']))
+{
+    $_SESSION['s'] = $_POST['s'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -20,9 +21,9 @@
 
 <body>
 
-<form method="GET" >
-        <input type="search" name="s" placeholder="entrez une phrase">
-        <input type="submit" name="Rechercher" class="btn btn-outline-success">
+<form method="POST" >
+        <input type="search" name="s" action="" placeholder="entrez une phrase">
+        <input type="submit" class="btn btn-outline-success">
 </form>
 
 <button type="button" class="btn btn-link-light" id="btn"><a href="index.php"><<</a></button>
@@ -31,3 +32,6 @@
 </body>
 </html>
 
+<?php
+
+?>
