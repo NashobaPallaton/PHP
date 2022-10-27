@@ -37,11 +37,50 @@
  TAB;
 
 echo "$html";
-echo ("ceci est un tableau");
+
+$chaine = "Hello There!";
+echo "$chaine <br>";
+$chaine = str_replace("o", "",$chaine);  
+$chaine = str_replace("T", "",$chaine);
+echo "$chaine <br>";
+
+
+for ($x = 1; $x<=7; $x++) { 
+    $HW = <<<MSG
+     <font size="$x">size +1<font><br/>
+MSG;
+echo "$HW";
+}
+
+$myString = "12"+12;
+$myInteger = (integer)$myString;
+var_dump($myInteger);
+echo "$myString<br><br><br>";;
 ?>
+
+<font size="1">
+
+<form action = "<?php print $_SERVER['PHP_SELF'];?>" method = "post">
+ 
+<input type = "text" name = "val1">
++
+<input type = "text" name = "val2">
+<input type = "submit" value = "=">
+<input type = "reset" value = "C"></form>
+
+<font>
+
+<?php
+ 
+ if(isset($_POST['val1']) && isset($_POST['val2']))
+ {
+   $val1 = $_POST['val1'];
+   $val2 = $_POST['val2'];
+ }
+
+echo "$val1"+"$val2";
+?>
+
 
 </body>
 </html>
-
-
-
