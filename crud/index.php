@@ -1,4 +1,6 @@
 <?php
+// demarrer la session
+session_start();
 
 // inclure connection
 require_once('connect.php');
@@ -30,14 +32,41 @@ require_once('close.php');
     <main class="container">
         <div class="row">
             <section class="col-12">
+                <?php
+                    if(!empty($_SESSION['erreur'])){
+                        echo '<div class="alert alert-danger" role="alert">
+                               '. $_SESSION['erreur'].'
+                              </div>';
+                        $_SESSION['erreur'] = "";
+                    }
+                ?>
+                <h1>Liste des produits</h1>
                 <table class="table">
                     <thead>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <th>ID</th>
+                        <th>Produit</th>
+                        <th>Prix (€)</th>
+                        <th>Stock</th>
+                        <th>Action</th>
                     </thead>
+                    <tbody>
+                        <?php
+                        // boucler sur la variable result
+                        foreach ($result as $produit){
+                        ?>
+                            <tr>
+                                <td><?= $produit['id'] ?></td>
+                                <td><?= $produit['produit'] ?></td>
+                                <td><?= $produit['prix'] ?></td>
+                                <td><?= $produit['nombre'] ?></td>
+                                <td><a href="detail.php?id=<?= $produit['id'] ?>">Voir</a></td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
                 </table>
+                <a href="add.php" class="btn btn-primary">Ajouter un produit</a>
             </section>
         </div>
     </main>
