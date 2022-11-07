@@ -40,6 +40,14 @@ require_once('close.php');
                         $_SESSION['erreur'] = "";
                     }
                 ?>
+                <?php
+                    if(!empty($_SESSION['message'])){
+                        echo '<div class="alert alert-success" role="alert">
+                               '. $_SESSION['message'].'
+                              </div>';
+                        $_SESSION['message'] = "";
+                    }
+                ?>
                 <h1>Liste des produits</h1>
                 <table class="table">
                     <thead>
@@ -59,7 +67,7 @@ require_once('close.php');
                                 <td><?= $produit['produit'] ?></td>
                                 <td><?= $produit['prix'] ?></td>
                                 <td><?= $produit['nombre'] ?></td>
-                                <td><a href="detail.php?id=<?= $produit['id'] ?>">Voir</a></td>
+                                <td><a href="detail.php?id=<?= $produit['id'] ?>">Voir</a>/<a href="edit.php?id=<?= $produit['id'] ?>">Modifier</a>/<a href="edit.php?id=<?= $produit['id'] ?>">Effacer</a></td>
                             </tr>
                         <?php
                         }
